@@ -81,4 +81,22 @@ for(let i=1; i<=workingDays; i++){
 }
 
 let empWage = empHrs * wagePerHourF;
-console.log("Monthly Wage " + empWage + " in " + empHrs + " hrs");
+console.log("Monthly Wage: " + empWage + " in " + empHrs + " hrs");
+
+
+
+
+
+// UC5 (Calculate wages till total working hours of 160 or max days of 20 is reached for a month)
+
+let totalDays = 0;
+empHrs = 0;
+
+while(empHrs <= 160 && totalDays < 20){    
+    empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs += getWorkingHours(empCheck);
+    totalDays++;
+}
+
+empWage = empHrs * wagePerHour; 
+console.log("Total days: " + totalDays + ", Total hours: " + empHrs + ", Wage: " + empWage);
