@@ -37,3 +37,31 @@ switch(hours){
 
 let wage = wagePerHour * hours;
 console.log("Daily wage:", wage);
+
+
+
+
+
+// UC3 (Calculate daily employee wage with function)
+
+let hoursF = Math.floor(Math.random() * 10) % 3;
+
+const isPartTimeF = 1;
+const isFullTimeF = 2;
+const partTimeF = 4;
+const fullTimeF = 8;
+const wagePerHourF = 20;
+
+function getWorkingHours(hoursF){
+    switch(hoursF){
+        case isPartTime:
+            return partTimeF;
+        case isFullTime:
+            return fullTimeF;
+        default:
+            return 0;
+    }
+}
+
+let wageF = wagePerHourF * getWorkingHours(hoursF);
+console.log("Daily wage:", wageF);
