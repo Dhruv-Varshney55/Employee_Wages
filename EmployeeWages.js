@@ -130,3 +130,87 @@ while(totalEmpHrs <= maxWorkingHrs && totalDays < maxWorkingDays){
 
 empWage = totalEmpHrs * wagePerHour;
 console.log("Total days: " + totalDays + ", Total hours: " + totalEmpHrs + ", Wage: " + empWage);
+
+
+
+
+
+// UC7
+
+// UC7A (Calculate total wage using forEach method)  
+
+let totalEmpWage = 0;
+
+function sum(currWage){
+    totalEmpWage += currWage;
+}
+
+dailyWages.forEach(sum);
+console.log("Total days: " + totalDays + ", Total hours: " + totalEmpHrs + ", Wage: " + totalEmpWage);
+
+
+
+// UC7B (Show day with daily wage)
+
+let dayCount = 0;
+
+function mapDayWithWage(wage){
+    dayCount++;
+    return " (Day: " + dayCount + ", Wage: " + wage + ")";
+}
+
+let mappedWages = dailyWages.map(mapDayWithWage);
+console.log("Mapped array is =" + mappedWages);
+
+
+
+// UC7C (Days with full wage of 160)
+
+function fullWage(wage){
+    return wage.includes("160");
+}
+
+let fullWageDays = mappedWages.filter(fullWage);
+console.log("Full wage day array =" + fullWageDays);
+
+
+
+// UC7D (Find first occurrence when full time wage was earned)
+
+let firstOccurence = fullWageDays.find((wage) => wage.includes("160"))
+console.log("First occurence =" + firstOccurence);
+
+
+
+// UC7E (Check if every element of full time wage is truly holding full time wage)
+
+function isFullWage(wage){
+    return wage.includes("160");
+}
+
+console.log("Every element of full time wage truly holding full time wage? : " + fullWageDays.every(isFullWage));
+
+
+
+// UC7F (Check if there is any part time wage)
+
+function isPartWage(wage){
+    return wage.includes("80");
+}
+
+console.log("Is there any part time wage in the array? : " + mappedWages.some(isPartWage));
+
+
+
+// UC7G (Find total number of days employee worked)
+
+function totalDaysWorked(numOfDays, wage){
+    if(wage > 0){
+        return numOfDays + 1;
+    }
+    else{
+        return numOfDays;
+    }
+}
+
+console.log("Total number of days employee worked are: " + dailyWages.reduce(totalDaysWorked, 0));
