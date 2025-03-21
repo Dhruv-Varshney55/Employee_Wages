@@ -65,3 +65,20 @@ function getWorkingHours(hoursF){
 
 let wageF = wagePerHourF * getWorkingHours(hoursF);
 console.log("Daily wage:", wageF);
+
+
+
+
+
+// UC4 (Calculate wages for a month)
+
+const workingDays = 20;
+let empHrs = 0;
+
+for(let i=1; i<=workingDays; i++){
+    let empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs += getWorkingHours(empCheck);
+}
+
+let empWage = empHrs * wagePerHourF;
+console.log("Monthly Wage " + empWage + " in " + empHrs + " hrs");
