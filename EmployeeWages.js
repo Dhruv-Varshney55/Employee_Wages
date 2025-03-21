@@ -100,3 +100,33 @@ while(empHrs <= 160 && totalDays < 20){
 
 empWage = empHrs * wagePerHour; 
 console.log("Total days: " + totalDays + ", Total hours: " + empHrs + ", Wage: " + empWage);
+
+
+
+
+
+// UC6 (Storing daily wage in an array along with total wage)
+
+function getWage(empHrs){
+    return empHrs * wagePerHour;
+}
+
+const maxWorkingHrs = 160;
+const maxWorkingDays = 20;
+
+let totalEmpHrs = 0;
+let totalWorkingDays = 0;
+let dailyWages = new Array();
+
+totalDays = 0;
+
+while(totalEmpHrs <= maxWorkingHrs && totalDays < maxWorkingDays){
+    empCheck = Math.floor(Math.random() * 10) % 3;
+    empHrs = getWorkingHours(empCheck);
+    totalEmpHrs += empHrs;
+    dailyWages.push(getWage(empHrs));
+    totalDays++;
+}
+
+empWage = totalEmpHrs * wagePerHour;
+console.log("Total days: " + totalDays + ", Total hours: " + totalEmpHrs + ", Wage: " + empWage);
