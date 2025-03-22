@@ -315,3 +315,36 @@ while(totalEmpHrs <= maxWorkingHrs && totalDays < maxWorkingDays){
 }
 
 console.log("Hours and wages: " + hrsAndWageArr);
+
+
+
+
+
+// UC11 (Object operations using arrow functions)
+
+totalSalary = hrsAndWageArr
+    .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
+    .reduce((totalWage, dailyHrsAndWage) => totalWage + dailyHrsAndWage.dailyWage, 0);
+
+totalHours = hrsAndWageArr
+    .filter(dailyHrsAndWage => dailyHrsAndWage.dailyWage > 0)
+    .reduce((totalHours, dailyHrsAndWage) => totalHours + dailyHrsAndWage.dailyHours, 0);
+
+console.log("Total Hours: " + totalHours + " Total Wages: " + totalSalary);
+
+process.stdout.write("Full Work Days");
+hrsAndWageArr
+    .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 8)
+    .forEach(dailyHrsAndWage => process.stdout.write(dailyHrsAndWage.toString()));
+
+let partWorkingDayStrArr = hrsAndWageArr
+    .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 4)
+    .map(dailyHrsAndWage => dailyHrsAndWage.toString());
+
+console.log("\nPartWorkingDayStrings: " + partWorkingDayStrArr);
+
+let nonWorkingDayNums = hrsAndWageArr
+    .filter(dailyHrsAndWage => dailyHrsAndWage.dailyHours == 0)
+    .map(dailyHrsAndWage => dailyHrsAndWage.dayNum);
+
+console.log("NonWorkingDayNums: " + nonWorkingDayNums);
